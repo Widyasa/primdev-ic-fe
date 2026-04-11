@@ -34,6 +34,10 @@ function decrease(id) {
   existing.qty--
 }
 
+  function formatPrice(price) {
+    return (parseInt(price) * 1000).toLocaleString("id-ID");
+  }
+
 // Hitung total qty semua item
 const totalItems = computed(() =>
   state.items.reduce((sum, item) => sum + item.qty, 0)
@@ -41,7 +45,7 @@ const totalItems = computed(() =>
 
 // Hitung total harga
 const totalPrice = computed(() =>
-  state.items.reduce((sum, item) => sum + item.price * item.qty, 0)
+  formatPrice(state.items.reduce((sum, item) => sum + item.price * item.qty, 0))
 )
 
 // Export jadi satu object

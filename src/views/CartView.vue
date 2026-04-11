@@ -6,10 +6,6 @@ import {
   ClockIcon,
 } from "@heroicons/vue/24/outline";
 import { cart } from "@/stores/cart";
-
-function formatPrice(price) {
-  return (price * 1000).toLocaleString("id-ID");
-}
 </script>
 
 <template>
@@ -28,7 +24,7 @@ function formatPrice(price) {
 
           <div class="col-span-2">
             <p class="font-semibold">{{ item.name }}</p>
-            <p class="text-sm text-gray-500">Rp {{ formatPrice(item.price) }}</p>
+            <p class="text-sm text-gray-500">Rp {{ item.price }}</p>
           </div>
 
           <div class="flex items-center gap-3">
@@ -38,7 +34,7 @@ function formatPrice(price) {
               class="grid w-10 aspect-square place-items-center rounded-full border border-gray-200 text-white bg-gray-400 hover:bg-gray-50"
             >
               -
-            </button> 
+            </button>
 
             <span class="min-w-6 text-center font-medium">{{ item.qty }}</span>
 
@@ -74,7 +70,7 @@ function formatPrice(price) {
 
           <div class="flex justify-between text-gray-500">
             <span>Subtotal</span>
-            <span>Rp {{ formatPrice(cart.totalPrice) }}</span>
+            <span>Rp {{ cart.totalPrice }}</span>
           </div>
 
           <div class="flex justify-between text-gray-500">
@@ -86,7 +82,7 @@ function formatPrice(price) {
             class="border-t border-gray-100 pt-3 flex justify-between font-semibold text-lg"
           >
             <span>Total</span>
-            <span>Rp {{ formatPrice(cart.totalPrice) }}</span>
+            <span>Rp {{ cart.totalPrice }}</span>
           </div>
         </div>
 
