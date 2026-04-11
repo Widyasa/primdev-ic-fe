@@ -1,33 +1,35 @@
 <script setup>
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+import { cart } from "@/stores/cart";
 
-const route = useRoute()
+const route = useRoute();
 
 // Dummy data produk (seharusnya dari API/database)
 const products = [
   {
     id: 1,
-    name: 'Kaos Basic Ordinary Tee',
-    category: 'T-Shirt',
+    name: "Kaos Basic Ordinary Tee",
+    category: "T-Shirt",
     price: 129,
-    image: '/src/assets/img/products/cloth-1.png',
-    description: 'Kaos basic serbaguna dengan bahan lembut dan nyaman dipakai sepanjang hari.',
+    image: "/src/assets/img/products/cloth-1.png",
+    description:
+      "Kaos basic serbaguna dengan bahan lembut dan nyaman dipakai sepanjang hari.",
   },
   {
     id: 2,
-    name: 'Kaos Daily Comfort Wear',
-    category: 'T-Shirt',
+    name: "Kaos Daily Comfort Wear",
+    category: "T-Shirt",
     price: 139,
-    image: '/src/assets/img/products/cloth-2.png',
-    description: 'Dirancang untuk kenyamanan maksimal saat aktivitas harian.',
+    image: "/src/assets/img/products/cloth-2.png",
+    description: "Dirancang untuk kenyamanan maksimal saat aktivitas harian.",
   },
- ]
+];
 
 // Cari produk berdasarkan ID dari route params
 const product = computed(() => {
-  return products.find(p => p.id === Number(route.params.id))
-})
+  return products.find((p) => p.id === Number(route.params.id));
+});
 </script>
 
 <template>
@@ -39,7 +41,6 @@ const product = computed(() => {
     </div>
 
     <div v-if="product" class="grid md:grid-cols-2 gap-10 items-start">
-
       <div class="bg-gray-100 rounded-xl overflow-hidden">
         <img :src="product.image" class="w-full h-full object-cover" />
       </div>
@@ -56,15 +57,20 @@ const product = computed(() => {
         </div>
 
         <div class="flex gap-4 pt-4">
-          <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+          <button
+            @click="cart.add(product)"
+            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          >
             Add to Cart
           </button>
-          <button class="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 transition">
+
+          <button
+            class="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 transition"
+          >
             Wishlist
           </button>
         </div>
       </div>
-
     </div>
 
     <div v-else class="text-center py-20">

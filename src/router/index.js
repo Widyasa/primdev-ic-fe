@@ -2,6 +2,7 @@ import AboutView from '@/views/AboutView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import CartView from '@/views/CartView.vue' 
 
 
 // Definisi Routes: Mapping URL ke Component
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/about',          // URL: <http://localhost:5173/about>
     component: AboutView,    // Komponen yang akan ditampilkan
+  },
+  {
+    path: '/cart',           // URL: URL: <http://localhost:5173/cart>
+    component: CartView,     // Komponen yang akan ditampilkan
   }
 ]
 const router = createRouter({
