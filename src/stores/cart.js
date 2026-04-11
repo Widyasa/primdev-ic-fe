@@ -34,9 +34,9 @@ function decrease(id) {
   existing.qty--
 }
 
-  function formatPrice(price) {
-    return (parseInt(price) * 1000).toLocaleString("id-ID");
-  }
+function formatPrice(price) {
+  return (parseInt(price) * 1000).toLocaleString("id-ID");
+}
 
 // Hitung total qty semua item
 const totalItems = computed(() =>
@@ -54,6 +54,7 @@ export const cart = {
   add,
   decrease,
   remove,
+  formatPrice,
   totalItems,
   totalPrice,
 }

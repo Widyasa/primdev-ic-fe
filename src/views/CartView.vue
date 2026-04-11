@@ -24,7 +24,7 @@ import { cart } from "@/stores/cart";
 
           <div class="col-span-2">
             <p class="font-semibold">{{ item.name }}</p>
-            <p class="text-sm text-gray-500">Rp {{ item.price }}</p>
+            <p class="text-sm text-gray-500">Rp {{ cart.formatPrice(item.price) }}</p>
           </div>
 
           <div class="flex items-center gap-3">
