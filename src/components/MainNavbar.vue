@@ -4,6 +4,7 @@ import {
   HeartIcon,
   ShoppingBagIcon,
   Bars3Icon,
+  UserIcon,
 } from "@heroicons/vue/24/outline";
 import { cart } from "@/stores/cart";
 import { RouterLink } from "vue-router";
@@ -46,6 +47,9 @@ import { RouterLink } from "vue-router";
           <button class="p-2 hover:bg-gray-100 rounded-full">
             <HeartIcon class="w-5 h-5" />
           </button>
+          <RouterLink to="/login" class="p-2 hover:bg-gray-100 rounded-full" title="Masuk">
+            <UserIcon class="w-5 h-5" />
+          </RouterLink>
 
           <RouterLink to="/cart" class="p-2 hover:bg-gray-100 rounded-full relative">
             <ShoppingBagIcon class="w-5 h-5" />

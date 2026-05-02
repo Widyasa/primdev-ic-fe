@@ -6,6 +6,7 @@ import {
   ClockIcon,
 } from "@heroicons/vue/24/outline";
 import { cart } from "@/stores/cart";
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -23,8 +24,8 @@ import { cart } from "@/stores/cart";
           <img :src="item.image" class="w-20 h-20 object-cover rounded" />
 
           <div class="col-span-2">
-            <p class="font-semibold">{{ item.name }}</p>
-            <p class="text-sm text-gray-500">Rp {{ cart.formatPrice(item.price) }}</p>
+            <p class="font-semibold">{{ item?.title }}</p>
+            <p class="text-sm text-gray-500">{{ cart.formatPrice(item?.price) }}</p>
           </div>
 
           <div class="flex items-center gap-3">
@@ -82,7 +83,7 @@ import { cart } from "@/stores/cart";
             class="border-t border-gray-100 pt-3 flex justify-between font-semibold text-lg"
           >
             <span>Total</span>
-            <span>Rp {{ cart.totalPrice }}</span>
+            <span>{{ cart.totalPrice }}</span>
           </div>
         </div>
 
@@ -109,11 +110,11 @@ import { cart } from "@/stores/cart";
           </div>
         </div>
 
-        <button
-          class="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition"
-        >
+        <RouterLink to="/checkout"
+          class="block w-full bg-blue-600 text-white py-3 rounded-xl font-medium
+                hover:bg-blue-700 transition text-center">
           Checkout Sekarang
-        </button>
+        </RouterLink>
 
         <p class="text-xs text-gray-400 text-center">Transaksi aman & terenkripsi.</p>
       </div>

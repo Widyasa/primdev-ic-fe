@@ -35,7 +35,12 @@ function decrease(id) {
 }
 
 function formatPrice(price) {
-  return (parseInt(price) * 1000).toLocaleString("id-ID");
+const usdFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+
+return usdFormatter.format(price);
 }
 
 // Hitung total qty semua item

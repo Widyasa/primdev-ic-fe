@@ -11,18 +11,18 @@ defineProps({
   >
     <div class="aspect-square overflow-hidden">
       <img
-        :src="product.image"
-        :alt="product.name"
+        :src="product?.image"
+        :alt="product?.title"
         class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
       />
     </div>
 
     <div class="p-4 space-y-1">
       <h3 class="font-semibold text-gray-900 line-clamp-2">
-        {{ product.name }}
+        {{ product?.title }}
       </h3>
-      <p class="text-sm text-gray-500">{{ product.category }}</p>
-      <p class="font-bold text-gray-900 mt-2">IDR {{ product.price }}K</p>
+        <p class="text-sm text-gray-500">{{ product?.category }}</p>
+        <p class="font-bold text-gray-900 mt-2">${{ product?.price }}</p>
     </div>
   </RouterLink>
 </template>
